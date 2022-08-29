@@ -1,12 +1,15 @@
 import "@nomicfoundation/hardhat-toolbox";
+import dotenv from 'dotenv';
 import { HardhatUserConfig } from "hardhat/config";
+
+dotenv.config({path: ".env"})
 
 const config: HardhatUserConfig = {
   solidity: "0.8.9",
   networks:{
     goerli: {
-      url: process.env.ALCHEMY_API_KEY,
-      accounts: [process.env.GOERLI_PRIVATE_KEY as string],
+      url: process.env.ALCHEMY_URL,
+      accounts: [process.env.GOERLI_PRIVATE_KEY!],
     }
   }
 };
